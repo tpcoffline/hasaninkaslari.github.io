@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paranı harca kazığı ye</title>
+    <title>Paranı Harca Kazığı Ye</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Paranı harca kazığı ye</h1>
-        <div class="balance">
+        <h1>Paranı Harca Kazığı Ye</h1>
+        <div class="balance-container">
             Kalan Bakiye: <span id="balance">100.00</span> TL
-            <button id="addMoneyBtn">+</button>
+            <button class="add-money" onclick="openAddMoneyGame()">+</button>
         </div>
         <button id="completePurchase">Alışverişi Tamamla</button>
     </header>
@@ -20,23 +20,16 @@
             <!-- Kartlar buraya dinamik olarak eklenecek -->
         </div>
     </main>
-    <footer>
-        <p>&copy; 2024 Paranı harca kazığı ye</p>
-    </footer>
-
+    <div id="addMoneyGame" class="hidden">
+        <h2>Bakiye Arttırma Oyunu</h2>
+        <p>Butona basarak 10 TL kazanma şansı elde edin!</p>
+        <button onclick="playAddMoneyGame()">Oyna</button>
+        <button onclick="closeGame()">Kapat</button>
+    </div>
     <div id="purchaseComplete" class="hidden">
         <h2>Alışveriş Tamamlandı!</h2>
         <button id="shareBtn">Paylaş</button>
     </div>
-
-    <!-- Bakiye Arttırma Oyunu -->
-    <div id="addMoneyGame" class="hidden">
-        <h2>Bakiye Arttırma Oyunu</h2>
-        <p>Oyunu kazanırsan 10 TL kazanacaksın!</p>
-        <button id="playGameBtn">Oyna</button>
-        <button onclick="closeGame()">Kapat</button>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
