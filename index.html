@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spend Bill Gates Money - Türkiye</title>
+    <title>Spend Your Money</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,26 +18,8 @@
         </div>
     </main>
     <footer>
-        <button id="adminBtn">Admin</button>
+        <p>&copy; 2024 Spend Your Money</p>
     </footer>
-
-    <!-- Admin Panel -->
-    <div id="adminPanel" class="admin-panel hidden">
-        <h2>Admin Paneli</h2>
-        <label for="adminPassword">Şifre:</label>
-        <input type="password" id="adminPassword">
-        <button onclick="checkAdminPassword()">Giriş Yap</button>
-    </div>
-
-    <!-- Kart Yönetim Paneli -->
-    <div id="cardManager" class="admin-panel hidden">
-        <h2>Kart Yönetimi</h2>
-        <button onclick="addNewCard()">Yeni Kart Ekle</button>
-        <div id="existingCards">
-            <!-- Mevcut kartlar buraya listelenecek -->
-        </div>
-        <button onclick="closeCardManager()">Kapat</button>
-    </div>
 
     <div id="purchaseComplete" class="hidden">
         <h2>Alışveriş Tamamlandı!</h2>
