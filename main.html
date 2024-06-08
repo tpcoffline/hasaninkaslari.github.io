@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şifre Giriş Ekranı</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Şifre Girin</h2>
+        <input type="password" id="password" placeholder="Şifre">
+        <button onclick="checkPassword()">Gönder</button>
+        <img id="image" src="https://cdn.discordapp.com/attachments/890639916525035520/1249030927334510752/IMG_20240607_010555_644.jpg?ex=6665d232&is=666480b2&hm=2d1457b735819fc4120eed2a1c9699de4021da97a08a21d2b9157deb54007197&" alt="Doğru şifre ile görüntülenen resim">
+    </div>
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "hobbidi") {
+                document.getElementById("image").style.display = "block";
+            } else {
+                alert("Yanlış şifre, tekrar deneyin.");
+            }
+        }
+    </script>
+</body>
+</html>
