@@ -3,94 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Şifre Giriş Ekranı</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        input[type="password"] {
-            padding: 10px;
-            font-size: 16px;
-            margin: 10px 0;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: none;
-            margin-top: 20px;
-        }
-        .price {
-            display: none;
-            font-size: 20px;
-            color: #333;
-            margin-top: 10px;
-        }
-        .buy-button {
-            display: none;
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #008CBA;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .buy-button:hover {
-            background-color: #007B9E;
-        }
-    </style>
+    <title>Spend Bill Gates Money - Türkiye</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Şifre Girin</h2>
-        <input type="password" id="password" placeholder="Şifre">
-        <button onclick="checkPassword()">Gönder</button>
-        <img id="image" src="https://cdn.discordapp.com/attachments/890639916525035520/1249030927334510752/IMG_20240607_010555_644.jpg?ex=6665d232&is=666480b2&hm=2d1457b735819fc4120eed2a1c9699de4021da97a08a21d2b9157deb54007197&" alt="Doğru şifre ile görüntülenen resim">
-        <div class="price" id="price">99.90 TL</div>
-        <button class="buy-button" id="buyButton" onclick="buyProduct()">Satın Al</button>
-    </div>
-    <script>
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            if (password === "hobbidi") {
-                document.getElementById("image").style.display = "block";
-                document.getElementById("price").style.display = "block";
-                document.getElementById("buyButton").style.display = "block";
-            } else {
-                alert("Yanlış şifre, tekrar deneyin.");
-            }
-        }
+    <header>
+        <h1>Spend Your Money</h1>
+        <div class="balance">Kalan Bakiye: <span id="balance">100.00</span> TL</div>
+        <button id="completePurchase">Alışverişi Tamamla</button>
+    </header>
+    <main>
+        <div class="cards" id="cards">
+            <!-- Kartlar buraya dinamik olarak eklenecek -->
+        </div>
+    </main>
+    <footer>
+        <button id="adminBtn">Admin</button>
+    </footer>
 
-        function buyProduct() {
-            alert("Bu ürünü almak için en az satıcı kadar yakışıklı olman gerekiyor ezik.");
-        }
-    </script>
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <h2>Admin Paneli</h2>
+        <label for="adminPassword">Şifre:</label>
+        <input type="password" id="adminPassword">
+        <button onclick="checkAdminPassword()">Giriş Yap</button>
+    </div>
+
+    <!-- Kart Yönetim Paneli -->
+    <div id="cardManager" class="admin-panel hidden">
+        <h2>Kart Yönetimi</h2>
+        <button onclick="addNewCard()">Yeni Kart Ekle</button>
+        <div id="existingCards">
+            <!-- Mevcut kartlar buraya listelenecek -->
+        </div>
+        <button onclick="closeCardManager()">Kapat</button>
+    </div>
+
+    <div id="purchaseComplete" class="hidden">
+        <h2>Alışveriş Tamamlandı!</h2>
+        <button id="shareBtn">Paylaş</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
