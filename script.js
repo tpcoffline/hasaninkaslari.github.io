@@ -1,103 +1,77 @@
-let balance = 100.00;
-let cards = [
-    { name: 'Ürün 1', price: 20.00, img: 'kartlar/urun1.jpg', inCart: false },
-    { name: 'Ürün 2', price: 50.00, img: 'kartlar/urun2.jpg', inCart: false },
-    // Diğer ürünleri burada tanımlayın
-];
-
-function updateBalance() {
-    document.getElementById('balance').innerText = balance.toFixed(2);
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
-
-function toggleCart(index) {
-    if (cards[index].inCart) {
-        cards[index].inCart = false;
-        balance += cards[index].price;
-    } else {
-        if (balance >= cards[index].price) {
-            cards[index].inCart = true;
-            balance -= cards[index].price;
-        } else {
-            alert('Yeterli bakiye yok!');
-            return;
-        }
-    }
-    updateBalance();
-    renderCards();
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
 }
-
-function renderCards() {
-    const cardsContainer = document.getElementById('cards');
-    cardsContainer.innerHTML = '';
-    cards.forEach((card, index) => {
-        const cardElement = document.createElement('div');
-        cardElement.className = 'card';
-        cardElement.innerHTML = `
-            <img src="${card.img}" alt="${card.name}">
-            <div class="name">${card.name}</div>
-            <div class="price">${card.price.toFixed(2)} TL</div>
-            <button onclick="toggleCart(${index})">
-                ${card.inCart ? 'Sepetten Çıkar' : 'Sepete Ekle'}
-            </button>
-        `;
-        cardsContainer.appendChild(cardElement);
-    });
+.balance {
+    font-size: 20px;
 }
-
-function checkAdminPassword() {
-    const password = document.getElementById('adminPassword').value;
-    if (password === 'hobala') {
-        document.getElementById('adminPanel').classList.add('hidden');
-        document.getElementById('cardManager').classList.remove('hidden');
-        renderCardManager();
-    } else {
-        alert('Yanlış şifre!');
-    }
+main {
+    padding: 20px;
 }
-
-function renderCardManager() {
-    const existingCardsContainer = document.getElementById('existingCards');
-    existingCardsContainer.innerHTML = '';
-    cards.forEach((card, index) => {
-        const cardElement = document.createElement('div');
-        cardElement.innerHTML = `
-            <div>${card.name} - ${card.price.toFixed(2)} TL</div>
-            <button onclick="deleteCard(${index})">Sil</button>
-        `;
-        existingCardsContainer.appendChild(cardElement);
-    });
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-
-function deleteCard(index) {
-    cards.splice(index, 1);
-    renderCardManager();
-    renderCards();
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
 }
-
-function addNewCard() {
-    const name = prompt('Ürün Adı:');
-    const price = parseFloat(prompt('Ürün Fiyatı:'));
-    const img = prompt('Ürün Resmi URL:');
-    cards.push({ name, price, img, inCart: false });
-    renderCardManager();
-    renderCards();
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
-
-function closeCardManager() {
-    document.getElementById('cardManager').classList.add('hidden');
+.card .name {
+    font-size: 18px;
+    margin-top: 10px;
 }
-
-document.getElementById('completePurchase').addEventListener('click', () => {
-    document.getElementById('purchaseComplete').classList.remove('hidden');
-});
-
-document.getElementById('shareBtn').addEventListener('click', () => {
-    alert('Paylaşma ekranı açılıyor...');
-});
-
-document.getElementById('adminBtn').addEventListener('click', () => {
-    document.getElementById('adminPanel').classList.remove('hidden');
-});
-
-updateBalance();
-renderCards();
+.card .price {
+    font-size: 16px;
+    color: #333;
+}
+.card button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.card button:hover {
+    background-color: #007B9E;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+}
+.admin-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.hidden {
+    display: none;
+}
