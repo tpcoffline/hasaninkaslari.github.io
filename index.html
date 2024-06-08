@@ -45,6 +45,26 @@
             display: none;
             margin-top: 20px;
         }
+        .price {
+            display: none;
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+        }
+        .buy-button {
+            display: none;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buy-button:hover {
+            background-color: #007B9E;
+        }
     </style>
 </head>
 <body>
@@ -53,15 +73,23 @@
         <input type="password" id="password" placeholder="Şifre">
         <button onclick="checkPassword()">Gönder</button>
         <img id="image" src="https://cdn.discordapp.com/attachments/890639916525035520/1249030927334510752/IMG_20240607_010555_644.jpg?ex=6665d232&is=666480b2&hm=2d1457b735819fc4120eed2a1c9699de4021da97a08a21d2b9157deb54007197&" alt="Doğru şifre ile görüntülenen resim">
+        <div class="price" id="price">99.90 TL</div>
+        <button class="buy-button" id="buyButton" onclick="buyProduct()">Satın Al</button>
     </div>
     <script>
         function checkPassword() {
             var password = document.getElementById("password").value;
             if (password === "hobbidi") {
                 document.getElementById("image").style.display = "block";
+                document.getElementById("price").style.display = "block";
+                document.getElementById("buyButton").style.display = "block";
             } else {
                 alert("Yanlış şifre, tekrar deneyin.");
             }
+        }
+
+        function buyProduct() {
+            alert("Bu ürünü almak için en az satıcı kadar yakışıklı olman gerekiyor ezik.");
         }
     </script>
 </body>
