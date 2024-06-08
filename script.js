@@ -6,7 +6,7 @@ let cards = [
     { name: 'sansi Salvo', price: 20.00, img: 'https://cdn.discordapp.com/attachments/890639916525035520/1249059133194371082/20240603_212920.jpg?ex=6665ec77&is=66649af7&hm=db22349f1c73238dcc47e954e87d22d49dd65cd5902315f7aa58b9fbb8e42d3d&', inCart: false },
     { name: 'morinyo babaninyo', price: 25.00, img: 'https://cdn.discordapp.com/attachments/890639916525035520/1249059265021349929/29abc3ca36ea45279967b838406ae403.jpg?ex=6665ec97&is=66649b17&hm=22bed77325f277f4f56a8a57e2b0539c9de941f721a34f4eaeda9c7618df2cf2&', inCart: false },
     { name: 'bu ne sıcak', price: 15.00, img: 'https://cdn.discordapp.com/attachments/890639916525035520/1249059688893644840/Picsart_24-06-08_20-57-04-229.png?ex=6665ecfc&is=66649b7c&hm=ee8f99c5d412ddbd47b1d52a3f853d315c06243a0dbb0d7a83109fae1bb2b735&', inCart: false },
-    { name: 'siyah seven İsmail kartal', price: 35.00, img: 'https://cdn.discordapp.com/attachments/890639916525035520/1249059920138080326/20240530_002831.jpg?ex=6665ed33&is=66649bb3&hm=9cf30e5d3ba48ead18591f93441a36b13cd23ebc1b37690610f267150f7ebd9e&', inCart: false },
+    { name: 'siyah seven İsmail kartal', price: 35.00, img: 'https://cdn.discordapp.com/attachments/890639916525035520/1249059920138080326/20240530_002831.jpg?ex=6665ed33&is=66649bb3&hm=9cf30e5d3ba48ead18591f93441a36b13cd23ebc1b37690610f267150f7ebd9e&', inCart: false }
 ];
 
 function updateBalance() {
@@ -18,56 +18,4 @@ function toggleCart(index) {
         cards[index].inCart = false;
         balance += cards[index].price;
     } else {
-        if (balance >= cards[index].price) {
-            cards[index].inCart = true;
-            balance -= cards[index].price;
-        } else {
-            alert('Yeterli bakiye yok! Bakiyeni arttırmak için + işaretine tıklayabilirsin.');
-            document.getElementById('addMoneyBtn').classList.add('highlight');
-            return;
-        }
-    }
-    document.getElementById('addMoneyBtn').classList.remove('highlight');
-    updateBalance();
-    renderCards();
-}
-
-function renderCards() {
-    const cardsContainer = document.getElementById('cards');
-    cardsContainer.innerHTML = '';
-    cards.forEach((card, index) => {
-        const cardElement = document.createElement('div');
-        cardElement.className = 'card';
-        cardElement.innerHTML = `
-            <img src="${card.img}" alt="${card.name}">
-            <div class="name">${card.name}</div>
-            <div class="price">${card.price.toFixed(2)} TL</div>
-            <button onclick="toggleCart(${index})">
-                ${card.inCart ? 'Sepetten Çıkar' : 'Sepete Ekle'}
-            </button>
-        `;
-        cardsContainer.appendChild(cardElement);
-    });
-}
-
-document.getElementById('completePurchase').addEventListener('click', () => {
-    document.getElementById('purchaseComplete').classList.remove('hidden');
-});
-
-document.getElementById('shareBtn').addEventListener('click', () => {
-    alert('Paylaşma ekranı açılıyor...');
-});
-
-document.getElementById('addMoneyBtn').addEventListener('click', () => {
-    document.getElementById('addMoneyGame').classList.remove('hidden');
-});
-
-document.getElementById('playGameBtn').addEventListener('click', () => {
-    const gameResult = Math.random() < 0.5; // %50 kazanma şansı
-    if (gameResult) {
-        balance += 10;
-        alert('Tebrikler! 10 TL kazandınız.');
-    } else {
-        alert('Kaybettiniz! Tekrar deneyin.');
-    }
-    update
+        if (balance >= cards
