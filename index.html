@@ -9,7 +9,10 @@
 <body>
     <header>
         <h1>Paranı harca kazığı ye</h1>
-        <div class="balance">Kalan Bakiye: <span id="balance">100.00</span> TL</div>
+        <div class="balance">
+            Kalan Bakiye: <span id="balance">100.00</span> TL
+            <button id="addMoneyBtn">+</button>
+        </div>
         <button id="completePurchase">Alışverişi Tamamla</button>
     </header>
     <main>
@@ -24,6 +27,14 @@
     <div id="purchaseComplete" class="hidden">
         <h2>Alışveriş Tamamlandı!</h2>
         <button id="shareBtn">Paylaş</button>
+    </div>
+
+    <!-- Bakiye Arttırma Oyunu -->
+    <div id="addMoneyGame" class="hidden">
+        <h2>Bakiye Arttırma Oyunu</h2>
+        <p>Oyunu kazanırsan 10 TL kazanacaksın!</p>
+        <button id="playGameBtn">Oyna</button>
+        <button onclick="closeGame()">Kapat</button>
     </div>
 
     <script src="script.js"></script>
